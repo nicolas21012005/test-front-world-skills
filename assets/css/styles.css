@@ -1,0 +1,37 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    width: 430px;
+    height: 932px;
+    background: #161616;
+}
+
+#info_home {
+    width: 100%;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    position: relative;
+    color: #fff;
+    text-align: center;
+}
+
+#info_home .imgHome1 {
+    top: 50px;
+    position: absolute;
+    background-size: contain;
+}
+
+#info_home .imgHome2 {
+    top: 180px;
+    position: absolute;
+}
+
+#info_home .imgHome3 {
+    top: 310px;
+    position: absolute;
+}

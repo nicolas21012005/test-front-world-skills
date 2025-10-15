@@ -1,23 +1,31 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="es">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Iniciar Sesion</title>
+    <title>Iniciar Sesión</title>
     <link rel="stylesheet" href="assets/css/login.css">
 </head>
 <body>
+
+    <!-- Imágenes de fondo con mismas clases que en home.html -->
+    <div class="background-images">
+        <img src="assets/img/home-img1.png" alt="Imagen fondo 1" class="imgHome1 bg-img">
+        <img src="assets/img/home-img2.png" alt="Imagen fondo 2" class="imgHome2 bg-img">
+        <img src="assets/img/home-img3.png" alt="Imagen fondo 3" class="imgHome3 bg-img">
+    </div>
+
     <div class="login-container">
         <div class="login-box">
             <div class="logo">
-                <img src="assets/img/LOGO.png" alt="Logo">
-                <P>¡Nos alegra verte de nuevo! Ingresa usuario y clave para continuar</P>
+                <img src="assets/img/LOGO.png" alt="Logo" class="logo-img">
+                <p class="logo-p">¡Nos alegra verte de nuevo! Ingresa usuario y clave para continuar</p>
             </div>
             
             <form action="login-form">
                 <div class="form-group">
                     <label for="email">EMAIL:</label>
-                    <input type="email"  id="email" name="email" placeholder="Ej:tuemail@gmail.com">
+                    <input type="email" id="email" name="email" placeholder="Ej: tuemail@gmail.com">
                 </div>
 
                 <div class="form-group">
@@ -26,10 +34,9 @@
                 </div>
 
                 <button type="submit" class="btn-login">INGRESAR</button>
-
             </form>
         </div>
     </div>
-    
+
 </body>
 </html>

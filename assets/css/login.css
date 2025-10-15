@@ -5,13 +5,15 @@
     font-family: 'Poppins', sans-serif;
 }
 
-body{
+body {
     background-color: #161616;
     display: flex;
     justify-content: center;
     align-items: center;
     height: 100vh;
     color: #fff;
+    position: relative; /* Esto es necesario */
+    overflow: hidden;
 }
 
 .login-container{
@@ -62,16 +64,22 @@ input {
     width: 100%;
     padding: 12px;
     border-radius: 25px;
-    border: 1px solid #444;
-    background-color: transparent;
+    background-color: #161616; /* mismo que fondo */
     color: #fff;
     outline: none;
-    transition: border 0.3s ease;
+    border: 2px solid transparent;
+    background-image:
+        linear-gradient(#161616, #161616), /* Fondo del input */
+        linear-gradient(to right, #00c6ff, #7d2ae8); /* Borde degradado */
+    background-origin: border-box;
+    background-clip: padding-box, border-box;
+    transition: border 0.3s ease, box-shadow 0.3s ease;
 }
 
 input:focus {
-    border: 1px solid #8a2be2;
+    box-shadow: 0 0 5px rgba(0, 198, 255, 0.5);
 }
+
 
 ::placeholder {
     color: #aaa;
@@ -94,3 +102,35 @@ input:focus {
     transform: scale(1.03);
     opacity: 0.9;
 }
+
+/* === Fondo estilo home.html adaptado al login === */
+
+.background-images {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 430px; /* Igual que body en home */
+    height: 932px;
+    overflow: hidden;
+    z-index: -1;
+}
+
+/* Estilos de imágenes reutilizados del home */
+.imgHome1,
+.imgHome2,
+.imgHome3 {
+    position: absolute;
+    left: 0;
+    width: 100%;
+    transform: skewY(-5deg);
+    transform-origin: top left;
+    opacity: 0.12;           /* 🔍 Baja opacidad para efecto de fondo */
+    pointer-events: none;    /* No bloquean clics */
+    user-select: none;
+    z-index: -1;             /* Asegura que estén detrás */
+}
+
+/* Posiciones específicas como en home */
+.imgHome1 { top: 50px; }
+.imgHome2 { top: 180px; }
+.imgHome3 { top: 310px; }

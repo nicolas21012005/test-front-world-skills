@@ -8,30 +8,110 @@ body {
     width: 430px;
     height: 932px;
     background: #161616;
+    margin: 0 auto;
+    padding: 0;
+    position: relative;
+    font-family: Arial, sans-serif;
+    color: #fff;
 }
 
 #info_home {
     width: 100%;
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: center;
+    height: 100%;
     position: relative;
-    color: #fff;
     text-align: center;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
 }
 
-#info_home .imgHome1 {
-    top: 50px;
+/* Imagenes posicionadas y con skew para efecto diagonal */
+.imgHome1,
+.imgHome2,
+.imgHome3 {
     position: absolute;
-    background-size: contain;
+    left: 0;
+    width: 100%;
+    transform: skewY(-5deg);
+    transform-origin: top left;
 }
 
-#info_home .imgHome2 {
-    top: 180px;
+.imgHome1 { top: 50px; }
+.imgHome2 { top: 180px; }
+.imgHome3 { top: 310px; }
+
+/* Logo */
+.logo_home {
     position: absolute;
+    top: 528px;
+    left: 50%;
+    width: 220px;
+    height: auto;
+    transform: translate(-50%, 0); /* Mantiene centrado */
 }
 
-#info_home .imgHome3 {
-    top: 310px;
+/* Texto */
+#info_home p {
     position: absolute;
+    top: 650px;
+    width: 100%;
+    font-size: 16px;
+    line-height: 1.5;
+    padding: 0 20px;
+    color: #ccc;
 }
+
+/* Botón */
+#btnStart {
+    position: absolute;
+    top: 730px;
+    left: 50%;
+    transform: translate(-50%, 0); /* Centrado */
+    background: linear-gradient(to right, #00c6ff, #7d2ae8);
+    color: white;
+    text-decoration: none;
+    border: none;
+    border-radius: 30px;
+    padding: 12px 28px;
+    font-size: 14px;
+    font-weight: bold;
+    cursor: pointer;
+    transition: transform 0.2s, box-shadow 0.3s;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2);
+}
+
+#btnStart:hover {
+    transform: translate(-50%, 0) scale(1.05); /* Combina centrado con hover */
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.3);
+}
+
+/* Animación de entrada (subir) */
+@keyframes subir {
+    0% {
+        opacity: 0;
+        transform: translateY(40px);
+    }
+    100% {
+        opacity: 1;
+        transform: translateY(1);
+    }
+}
+
+/* Aplicamos animación SIN romper el centrado */
+#info_home .imgHome1,
+#info_home .imgHome2,
+#info_home .imgHome3,
+#info_home .logo_home,
+#info_home p,
+#btnStart {
+    opacity: 0;
+    animation: subir 1s ease forwards;
+}
+
+/* Retrasos para efecto en cascada */
+#info_home .imgHome1 { animation-delay: 0.3s; }
+#info_home .imgHome2 { animation-delay: 0.6s; }
+#info_home .imgHome3 { animation-delay: 0.9s; }
+#info_home .logo_home { animation-delay: 1.2s; }
+#info_home p { animation-delay: 1.5s; }
+#btnStart { animation-delay: 1.8s; }

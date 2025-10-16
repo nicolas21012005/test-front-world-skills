@@ -14,7 +14,7 @@ function openModal({ ruta_caratula, nombre, categoria, sinopsis, reparto }) {
     modalTitle.textContent = nombre;
     modalCategory.textContent = categoria;
     modalDescription.textContent = sinopsis;
-    modalCast.textContent = reparto.join("", "");
+    modalCast.textContent = reparto.join(", ");
     modal.style.display = "block";
 }
 
@@ -40,7 +40,7 @@ document.addEventListener("DOMContentLoaded", () => {
             nombre: "Película de Ejemplo",
             categoria: "Acción",
             sinopsis: "Esta es una descripción breve de la película.",
-            reparto: "Actor 1, Actor 2, Actor 3"
+            reparto: ["Actor 1, Actor 2, Actor 3"]
         });
     });
 });

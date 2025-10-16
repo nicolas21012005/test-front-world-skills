@@ -1,15 +1,13 @@
-/* ======== ESTILO GENERAL ======== */
 body {
   width: 100vw;
-  max-width: 430px;
   height: 100vh;
-  min-height: 932px;
   background-color: #0f1115;
   color: #fff;
   font-family: 'Montserrat', sans-serif;
   margin: 0;
   overflow-x: hidden;
 }
+
 
 /* ======== HEADER ======== */
 header {
@@ -139,7 +137,7 @@ header {
   width: 95%;
   max-width: 500px;
   margin: 0 auto;
-  padding: 0 16px;
+  padding: 0 ;
 }
 
 /* Input de búsqueda */
@@ -172,7 +170,7 @@ header {
 /* Botón de búsqueda */
 .search-box button {
   position: absolute;
-  right: 49px;
+  right: 36px;
   top: 50%;
   transform: translateY(-50%);
   width: 50px;
@@ -274,57 +272,150 @@ footer button:not(:last-child) {
   border-right: 1px solid #969696;
 }
 
-/* ======== MODAL ======== */
+/* === MODAL === */
 .modal {
   display: none;
   position: fixed;
   inset: 0;
-  background: rgba(0, 0, 0, 0.9);
+  background: rgba(0, 0, 0, 0.95);
   justify-content: center;
   align-items: center;
-  z-index: 50;
+  z-index: 9999;
+  overflow: hidden;
+  padding: 0 10px;
 }
 
+/* Para cuando se muestra */
 .modal.show {
   display: flex;
 }
 
 .modal-content {
-  background-color: #191b21;
-  padding: 15px;
-  border-radius: 15px;
-  width: 90%;
-  max-width: 400px;
+  background: #111319;
+  color: #fff;
+  width: 100%;
+  height: 100vh; /* 💡 Fuerza a ocupar toda la altura visible */
+  max-width: 430px;
+  border-radius: 0; /* sin bordes redondeados para que parezca pantalla completa */
+  overflow-y: auto; /* solo si hay mucho contenido */
+  position: relative;
+  box-shadow: none;
+  animation: fadeIn 0.3s ease-in-out;
+  margin: 0; /* 💡 Evita separación arriba/abajo */
   position: relative;
 }
 
+
+/* === IMAGEN SUPERIOR === */
 .modal-content img {
   width: 100%;
-  border-radius: 10px;
+  height: auto;
+  display: block;
+  object-fit: cover;
 }
 
+/* === BOTÓN CERRAR === */
 #close-modal {
   position: absolute;
   top: 10px;
   right: 15px;
-  font-size: 22px;
+  font-size: 28px;
+  color: #ccc;
   cursor: pointer;
+  transition: color 0.3s;
+  z-index: 2;
 }
 
+#close-modal:hover {
+  color: #fff;
+}
+
+/* === TÍTULO === */
+#modal-title {
+  font-size: 20px;
+  font-weight: 600;
+  margin: 15px 20px 5px;
+}
+
+/* === CATEGORÍA === */
 .tag {
-  color: cyan;
+  color: #19c1e6;
+  font-weight: 500;
+  font-size: 14px;
+  margin: 0 20px 10px;
+  border-bottom: 1px solid #19c1e6;
+  display: inline-block;
+  padding-bottom: 2px;
 }
 
-.watch-btn {
-  width: 100%;
-  background: linear-gradient(90deg, cyan, violet);
-  border: none;
-  color: black;
-  padding: 10px;
-  border-radius: 10px;
-  margin-top: 15px;
-  cursor: pointer;
+/* === DESCRIPCIÓN === */
+#modal-description {
+  font-size: 14px;
+  line-height: 1.5;
+  color: #ccc;
+  margin: 0 20px 10px;
 }
+
+/* === REPARTO === */
+#modal-cast {
+  margin: 0 20px 20px;
+  color: #fff;
+  font-weight: bold;
+  font-size: 0.95rem;
+}
+
+#modal-cast b {
+  font-weight: 600;
+  color:#19c1e6;
+}
+
+/* === BOTÓN VER PELÍCULA === */
+.watch-btn {
+  display: block;
+  width: 40%;
+  background: linear-gradient(90deg, #00b3ff, #7b61ff);
+  color: #fff;
+  border: none;
+  border-radius: 25px;
+  padding: 12px 0;
+  font-weight: 600;
+  text-transform: uppercase;
+  cursor: pointer;
+  transition: transform 0.2s, opacity 0.2s;
+  text-align: center;
+  position: absolute;
+  right: 233px;
+  display: flex;              
+  align-items: center;        
+  justify-content: center;    
+  gap: 8px;                   
+  font-size: 14px;            
+}
+.watch-btn .imagen-boton {
+  width: 16px;
+  height: 16px;
+  object-fit: contain;
+  filter: brightness(0) invert(1); 
+}
+
+.watch-btn:hover {
+  transform: scale(1.05);
+  opacity: 0.9;
+}
+
+/* === ANIMACIÓN ENTRADA === */
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: scale(0.95);
+  }
+
+  to {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
 
 /* Contenedor principal del grid */
 #movies-grid {
